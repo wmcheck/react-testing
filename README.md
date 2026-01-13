@@ -1,21 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-
+# GIT
 ## Правила именования веток
 🔹 feature/    — для новой функциональности
    feature/add-search
@@ -35,16 +18,31 @@ If you are developing a production application, we recommend using TypeScript wi
    docs/update-readme
 
 
-Сценарий 1: Создать ветку для новой фичи
+## Сценарий 1: Создать ветку для новой фичи
 
-# Начинаем с чистого main
+### Начинаем с чистого main
 git checkout main
 git pull origin main
 
-# Создаем ветку
+### Создаем ветку
 git checkout -b feature/user-authentication
 
-# Работаем...
+### Работаем...
 git add .
 git commit -m "Add authentication logic"
 git push -u origin feature/user-authentication
+
+## Сценарий 2: Создать ветку от другой ветки (не от main)
+
+### Если нужно продолжить работу от feature/A
+git checkout feature/A
+git pull origin feature/A
+git checkout -b feature/B
+
+## Сценарий 3: Ветка от определенного коммита
+
+### Посмотреть историю коммитов
+git log --oneline
+
+### Создать ветку от конкретного коммита
+git checkout -b fix-branch a1b2c3d
