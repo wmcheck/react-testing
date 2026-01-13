@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import './App.css'
+
+function Component() {
+  console.log('1. Render phase - вычисляем виртуальный DOM');
+
+  useLayoutEffect(() => {
+    console.log('3. useLayoutEffect - DOM уже создан, но еще не нарисован');
+    // Здесь можно безопасно читать/изменять DOM
+  });
+
+  useEffect(() => {
+    console.log('5. useEffect - браузер уже всё нарисовал');
+    // Здесь можно делать асинхронные операции
+  });
+
+  console.log('2. Commit phase - применяем изменения к реальному DOM');
+
+  //console.log('Браузер: 4. Paint phase - рисуем пиксели')
+
+  return <div>Content</div>;
+}
 
 function App() {
   const [count, setCount] = useState(0)
 
+
+
+
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+        <Component />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }

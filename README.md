@@ -46,3 +46,10 @@ git log --oneline
 
 ### Создать ветку от конкретного коммита
 git checkout -b fix-branch a1b2c3d
+
+## Последующие обновления:
+
+### После первого push с -u
+git add .
+git commit -m "Update login form"
+git push  # Уже знает куда пушить
