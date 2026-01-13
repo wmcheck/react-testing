@@ -14,3 +14,37 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## Правила именования веток
+🔹 feature/    — для новой функциональности
+   feature/add-search
+   feature/user-profile
+
+🔹 bugfix/     — для исправления багов
+   bugfix/fix-login-error
+   bugfix/header-overlap
+
+🔹 hotfix/     — срочные исправления
+   hotfix/critical-security
+
+🔹 release/    — для подготовки релиза
+   release/v1.2.0
+
+🔹 docs/       — для документации
+   docs/update-readme
+
+
+Сценарий 1: Создать ветку для новой фичи
+
+# Начинаем с чистого main
+git checkout main
+git pull origin main
+
+# Создаем ветку
+git checkout -b feature/user-authentication
+
+# Работаем...
+git add .
+git commit -m "Add authentication logic"
+git push -u origin feature/user-authentication
